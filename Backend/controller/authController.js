@@ -59,7 +59,7 @@ exports.login = async (req, res) => {
 
         const mailOptions = {
             to: email,
-            from: 'sujal.shah23@comp.sce.edu.in', // Hardcoded email
+            from: process.env.AUTHMAIL, // Hardcoded email
             subject: 'Your 2FA Code',
             text: `Your 2FA code is ${twoFactorCode}. It will expire in 10 minutes.`,
         };
@@ -114,7 +114,7 @@ exports.forgotPassword = async (req, res) => {
         const resetURL = `http://localhost:3000/reset-password?token=${resetToken}`;
         const mailOptions = {
             to: email,
-            from: 'sujal.shah23@comp.sce.edu.in', // Hardcoded email
+            from: process.env.AUTHMAIL, // Hardcoded email
             subject: 'Password Reset Request',
             text: `You requested a password reset. Click the following link to reset your password: ${resetURL}`,
         };
@@ -171,7 +171,7 @@ exports.enableTwoFactor = async (req, res) => {
 
         const mailOptions = {
             to: email,
-            from: 'sujal.shah23@comp.sce.edu.in', // Hardcoded email
+            from: process.env.AUTHMAIL, // Hardcoded email
             subject: 'Your 2FA Code',
             text: `Your 2FA code is ${code}. Please keep it secure.`,
         };
