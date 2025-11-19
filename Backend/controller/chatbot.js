@@ -4,13 +4,10 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 
 
-const GEMINI_API_URL = "https://gemini-ai-api-url/v1/chat"; // Replace with actual Gemini API URL
+// const GEMINI_API_URL = "https://gemini-ai-api-url/v1/chat"; // Replace with actual Gemini API URL
 
 
-  
 
-
-  // Universal Chat Endpoint
   exports.chatBot = async (req, res) => {
     const { userInput } = req.body;
 
@@ -45,7 +42,7 @@ const GEMINI_API_URL = "https://gemini-ai-api-url/v1/chat"; // Replace with actu
 
         // Gemini AI Processing
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
         const result = await model.generateContent(professionalPrompt);
 
